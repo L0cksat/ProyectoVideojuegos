@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if object %}
+        <h2>Editar Plataformas</h2>
+    {% else %}
+        <h2>Nueva Plataforma</h2>
+    {% endif %}
+
+    <form method="post">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <button type="submit">Guardar</button>
+    </form>
+{% endblock content %}

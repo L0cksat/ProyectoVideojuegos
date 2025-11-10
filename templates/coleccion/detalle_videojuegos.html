@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ videojuego.titulo }}</h2>
+
+    {% if videojuego.imagen %}
+        <img src="{{ videojuego.imagen.url}}" alt="Carátula de {{videojuego.titulo}}"
+        style="max-width: 300px; max-height: 400px; border-radius: 8px;">
+
+    {% else %}
+        <p>(Sin imagen)</p>
+    {% endif %}
+        <p><strong>Plataforma:</strong> {{ videojuego.plataforma.nombre }}</p>
+        <p><strong>Género:</strong> {{ videojuego.genero.nombre }}</p>
+        <p><strong>Año:</strong>{{ videojuego.anio_salida }}</p>
+        <p><strong>Descripción:</strong><br> {{ videojuego.descripcion|linebreaks }}</p>
+
+    <hr>
+    <a href="{% url 'videojuego_editar' videojuego.pk %}">Editar</a> |
+    <a href="{% url 'videojuego_borrar' videojuego.pk %}">(-) Borrar</a>
+{% endblock content %}

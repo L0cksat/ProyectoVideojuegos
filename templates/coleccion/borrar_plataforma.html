@@ -1,0 +1,13 @@
+{% extends 'base.html'}
+
+{% block content %}
+<h2>Borrar Plataforma</h2>
+<p>¿Estas seguro de que quieres borrar <strong>"{{ plataforma.nombre }}"</strong>?</p>
+<p><small>Aviso: Los videojuegos de esta plataforma no se borrarán, pero quedarán sin plataforma</small></p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, borrar</button>
+    <a href="{% url 'lista_plataformas %'}">Cancelar</a>
+</form>
+{% endblock content %}

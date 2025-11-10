@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Borrar Género</h2>
+    <p>¿Etás seguro de que quieres borrar <strong>"{{ genero.nombre }}"</strong>?</p>
+    <p><small>Aviso: Los videojuegos de este género no se borrarán, pero quedarán sin género.</small></p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, borrar</button>
+        <a href="{% url 'lista_generos' %}">Cancelar</a>
+    </form>
+{% endblock content %}

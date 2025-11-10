@@ -1,0 +1,13 @@
+ {% extends 'base.html' %}
+
+ {% block content %}
+    {% if object %}
+        <h2>Editar: {{ object.titulo }}</h2>
+    {% else %}
+        <h2>Añadir Nuevo Videojuego</h2>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ form.as_p }} <button type="submit">Guardar</button>
+    </form>
+{% endblock content %}

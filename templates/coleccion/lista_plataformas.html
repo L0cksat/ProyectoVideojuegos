@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Gestionar Plataformas</h2>
+    <a href="{% url 'plataforma_nueva' %}">(+) Nueva Plataforma</a>
+
+    <ul>{% for plataforma in plataformas %}
+        <li>
+            {{ plataforma.nombre }}
+            (
+                (
+            <a href="{% url 'plataforma_editar' plataforma.pk %}">Editar</a>
+            <a href="{% url 'plataforma_borrar' plataforma.pk %}">Borrar</a>
+        )
+            )
+        </li>
+        {% empty %}
+            <p>No hay plataformas.</p>
+        {% endfor %}
+    </ul>
+{% endblock content %}

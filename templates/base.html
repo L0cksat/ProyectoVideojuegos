@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Colección de Videojuegos</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'lista_videojuegos' %}">Mi Colección</a></h1>
+
+        <nav>
+            <a href="{% url 'lista_videojuegos' %}">Juegos</a>
+            <a href="{% url 'lista_plataformas' %}">Plataformas</a>
+            <a href="{% url 'lista_generos' %}">Géneros</a>
+            <a href="{% url 'admin:index' %}" target="_blank">Admin</a>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+</body>
+</html>

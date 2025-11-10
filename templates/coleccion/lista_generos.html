@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Gestionar Géneros</h2>
+<a href="{% url 'genero_nuevo' %}">(+) Nuevo Género</a>
+
+<ul>
+    {% for genero in generos %}
+    <li>
+        {{ genero.nombre }}
+        (
+            <a href="{% url 'genero_editar' genero.pk %}">Editar</a>
+            <a href="{% url 'genero_borrar' genero.pk %}">Borrar</a>
+        )
+    </li>
+    {% empty %}
+    <p>No hay géneros</p>
+    {% endfor %}
+</ul>
+{% endblock content %}
